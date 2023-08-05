@@ -93,7 +93,9 @@ DlgResult fileDlg(FileDlgParams* params) {
         [panel setTitle:[[NSString alloc] initWithUTF8String:self->params->title]];
     }
     if (self->params->numext > 0) {
-        [panel setAllowedContentTypes:[NSArray arrayWithObjects:(NSString*)self->params->exts count:self->params->numext]];
+		NSArray *allowedContentTypes = [NSArray arrayWithObjects: (NSString*)self->params->exts, nil];
+        [panel setAllowedContentTypes:allowedContentTypes];
+        //[panel setAllowedContentTypes:[NSArray arrayWithObjects:(NSString*)self->params->exts count:self->params->numext]];
     }
     if (self->params->relaxext) {
         [panel setAllowsOtherFileTypes:YES];
